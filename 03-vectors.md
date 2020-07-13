@@ -1,0 +1,1 @@
+Lets make some small modifications to our last example to use something called a vector. Vectors are going to be very important as we move forward and make more games. You can think of vectors as 2 points
