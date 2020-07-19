@@ -75,6 +75,7 @@ int main(void)
         {
           int targetPieceId = missingPieceId + 1;
           piece temp = pieces[missingPieceId];
+
           pieces[missingPieceId] = pieces[targetPieceId];
           pieces[targetPieceId] = temp;
           missingPieceId = targetPieceId;

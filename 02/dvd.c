@@ -1,52 +1,56 @@
 #include "raylib.h"
 
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 450
-
-enum ColisionDireciton { None, Virticle, Horizontal };
-
-int hitEdge(int positionX, int positionY, int size)
+int hitVirticle(int x, int size)
 {
-  if (positionX <= 0 || positionX + size >= WINDOW_WIDTH)
+  if (x <= 0 || x + size >= 800)
     {
-      return Horizontal;
-    }
-  else if (positionY <= 0 || positionY + size >= WINDOW_HEIGHT)
-    {
-    return Virticle;
+      return 1;
     }
   else
     {
-      return None;
+      return 0;
+    }
+}
+
+int hitHorizontal(int y, int size)
+{
+  if (y <= 0 || y + size >= 450)
+    {
+      return 1;
+    }
+  else
+    {
+      return 0;
     }
 }
 
 int main(void)
 {
+  int windowWidth = 800;
   int windowHeight = 450;
-  char saverText[] = "DVD";
 
-  int saverPositionX = 100;
+  int saverPositionX = 140;
   int saverPositionY = 140;
-  int size = 100;
+
+  int speedX = 1;
+  int speedY = 1;
+
+  InitWindow(windowWidth, windowHeight, "Pause");
+
+  int size = 120;
   int boarderSize = 10;
 
-  int speedX = 2;
-  int speedY = 3;
-
-  InitWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "PAUSED");
-
+  char saverText[] = "DVD";
   int textLength = MeasureText(saverText, 20);
 
   SetTargetFPS(60);
   while (!WindowShouldClose())
     {
-      int hitDirection = hitEdge(saverPositionX, saverPositionY, size);
-      if (hitDirection == Horizontal)
+      if (hitVirticle(saverPositionX, size) == 1)
         {
           speedX = speedX * -1;
         }
-      else if (hitDirection == Virticle)
+      else if (hitHorizontal(saverPositionY, size) == 1)
         {
           speedY = speedY * -1;
         }
@@ -54,14 +58,16 @@ int main(void)
       saverPositionX += speedX;
       saverPositionY += speedY;
 
+
       BeginDrawing();
 
       ClearBackground(RAYWHITE);
 
       DrawRectangle(saverPositionX, saverPositionY, size, size, BLACK);
-      DrawRectangle(saverPositionX + boarderSize, saverPositionY + boarderSize, size - boarderSize*2, size - boarderSize *2, RAYWHITE);
+      DrawRectangle(saverPositionX + boarderSize, saverPositionY + boarderSize, size - boarderSize * 2, size - boarderSize * 2, RAYWHITE);
 
-      DrawText(saverText, saverPositionX + size/2 - textLength/2, saverPositionY + size / 2 - 10, 20, BLACK);
+      DrawText(saverText, saverPositionX + size / 2 - textLength / 2, saverPositionY + size / 2 - 10, 20, BLACK);
+
 
       EndDrawing();
     }
