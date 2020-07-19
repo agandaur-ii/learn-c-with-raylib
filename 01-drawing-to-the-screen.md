@@ -1,25 +1,38 @@
 # Making games with raylib
 
-https://www.raylib.com/index.html > raylib is a simple and easy-to-use
-library to enjoy videogames programming.
+https://www.raylib.com/index.html
 
-<Why use raylib> Use raylib because it is fun and in C. it does 2d and
+> raylib is a simple and easy-to-use
+> library to enjoy videogames programming.
+
+Use raylib because it is fun and in C. it does 2d and
 3d and is inspired by XNA and other game frameworks that make amazing
-games.  </Why>
+games.
 
 ## Install
 
 Install instructions can be found on GitHub under the "Development
 Platforms" side bar header.
 
-(Wiki)[https://github.com/raysan5/raylib/wiki]
+[Wiki](https://github.com/raysan5/raylib/wiki)
+
+Think about keeping a couple tabs open with,
+- [Examples](https://www.raylib.com/examples.html)
+- [Cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html)
+
+Open while you play so you can find out more about raylib as you go.
 
 There are a number of ways to install and configure raylib to work,
 but for the purposes of this tutorial I am going to assume that you
 can compile and run programs in a way that is fun and easy for you.
 
 On my machine I installed raylib with `brew install raylib` and run my
-programs with `gcc <my-program>.c `pkg-config --libs --cflags raylib``
+programs with
+
+```
+gcc -g -Wall <my-program>.c `pkg-config --libs --cflags raylib`
+```
+
 for the simple examples throughout this tutorial. Any additional
 configuration or compilation steps you have to do will be explained
 when we get to them.
