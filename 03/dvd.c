@@ -24,7 +24,7 @@ int hitHorizontal(int y, int size)
     }
 }
 
-int main(void)
+int main()
 {
   int windowWidth = 800;
   int windowHeight = 450;

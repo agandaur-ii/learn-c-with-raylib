@@ -7,7 +7,7 @@ Lets make a dvd pause screen. We can start by writing really similar code to our
 ```c
 #include "raylib.h"
 
-int main(void)
+int main()
 {
   int windowWidth = 800;
   int windowHeight = 450;
@@ -79,7 +79,7 @@ DrawRectangle(windowWidth / 2 - size / 2 - boarderSize, windowHeight / 2 - size 
 ```c
 #include "raylib.h"
 
-int main(void)
+int main()
 {
   int windowWidth = 800;
   int windowHeight = 450;

@@ -27,7 +27,7 @@ typedef struct Piece
   int empty;
 } piece;
 
-int main(void)
+int main()
 {
     const int screenWidth = 256;
     const int screenHeight = 256;
