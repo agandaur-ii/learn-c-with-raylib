@@ -148,7 +148,7 @@ while (!WindowShouldClose())
 This line tells raylib to continue doing the code in the `{}` until the `WindowShouldClose`. `WindowShouldClose` checks if the user presses the escape key or the `x` to close the window.
 
 - What is a `while`?
-- why all the perenthesis?
+- why all the parenthesis?
 - What is the `!`?
 
 ```c
@@ -161,13 +161,13 @@ This tells raylib that the code under this is going to draw things to the screen
 ClearBackground(RAYWHITE);
 ```
 
-This deletes everything from the background and draws `RAYWHITE` over the background.
+This deletes everything from the background and draws the color `RAYWHITE` over the background.
 
 ```c
 DrawText("Hello, raylib!", 0, 0, 20, BLACK);
 ```
 
-This tells raylib put the words "Hello, raylib!" at 0 pixels away from the top left side and 0 pixels away from the to top of the screen at `20` pixels font size in a `BLACK` color.
+This tells raylib to put the words "Hello, raylib!" at 0 pixels away from the top left side and 0 pixels away from the to top of the screen at `20` pixels font size in a `BLACK` color.
 
 
 ```c
