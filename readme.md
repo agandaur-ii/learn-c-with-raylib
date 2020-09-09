@@ -13,3 +13,4 @@ A series of short tutorials to help beginners understand and use C and raylib to
 - 7. [NEEDS THINKING] Boids
 - 7. [NEEDS THINKING] Suduku
 - 8. [NEEDS THINKING] Mendlebrot set
+- 9. [NEEDS THINKING] 2d line of sight (stealth game)

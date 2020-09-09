@@ -40,6 +40,7 @@ typedef enum Direction
   } Direction;
 
 Direction allowedMoveDirection(int loc, int space) {
+  // TODO: these are kinda backwards
   if (loc - 4 == space) {
     return South;
   } else if (loc + 4 == space) {
@@ -58,16 +59,40 @@ Vector2 addDelta(int locId, int missingPieceId, Vector2 loc, Vector2 delta) {
   updated.y = loc.y;
   switch (allowedMoveDirection(locId, missingPieceId)) {
   case North:
-    updated.y += delta.y;
+    if (delta.y > 0) {
+      if (delta.y > 64.0f) {
+        updated.y += 64.0f;
+      } else {
+        updated.y += delta.y;
+      }
+    }
     break;
   case South:
-    updated.y += delta.y;
+    if (delta.y < 0) {
+      if (delta.y < -64.0f) {
+        updated.y += -64.0f;
+      } else {
+        updated.y += delta.y;
+      }
+    }
     break;
   case East:
-    updated.x += delta.x;
+    if (delta.x > 0) {
+      if (delta.x > 64.0f) {
+        updated.x += 64.0f;
+      } else {
+        updated.x += delta.x;
+      }
+    }
     break;
   case West:
-    updated.x += delta.x;
+    if (delta.x < 0) {
+      if (delta.x < -64.0f) {
+        updated.x += -64.0f;
+      } else {
+        updated.x += delta.x;
+      }
+    }
     break;
   case None:
     break;
@@ -137,9 +162,8 @@ int main()
       if (IsMouseButtonReleased(MOUSE_LEFT_BUTTON)) {
         selectedId = -1;
 
-        printf("delta is (%f, %f) when the mouse was released\n", delta.x, delta.y);
+        /* printf("delta is (%f, %f) when the mouse was released\n", delta.x, delta.y); */
         if (delta.x > 32) { // snap right
-          printf("TRYING TO SNAP RIGHT\n");
           int targetPieceId = missingPieceId - 1;
           Piece temp = pieces[missingPieceId];
           pieces[missingPieceId] = pieces[targetPieceId];
@@ -219,7 +243,7 @@ int main()
                 Vector2 loc = imageLocation(i);
                 Rectangle frame = imageFrame(pieces[i].x, pieces[i].y);
                 DrawTextureRec(picture, frame, loc, WHITE);
-                DrawRectangleLinesEx(frame, 1, BLACK);
+                DrawRectangleLines(loc.x, loc.y, frame.width, frame.height, BLACK);
               }
           }
         }
