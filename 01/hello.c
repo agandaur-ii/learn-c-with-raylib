@@ -1,6 +1,6 @@
 #include "raylib.h"
 
-int main(void)
+int main()
 {
   int windowWidth = 800;
   int windowHeight = 450;

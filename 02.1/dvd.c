@@ -24,12 +24,12 @@ int hitHorizontal(int y, int size)
     }
 }
 
-int main(void)
+int main()
 {
   int windowWidth = 800;
   int windowHeight = 450;
 
-  Vector2 position = { 140, 140 };
+  Vector2 saverPosition = { 140, 140 };
   Vector2 speed = { 1, 1 };
 
   InitWindow(windowWidth, windowHeight, "Pause");
@@ -37,33 +37,33 @@ int main(void)
   int size = 120;
   int boarderSize = 10;
 
-  char text[] = "DVD";
-  int textLength = MeasureText(text, 20);
+  char saverText[] = "DVD";
+  int textLength = MeasureText(saverText, 20);
 
   SetTargetFPS(60);
   while (!WindowShouldClose())
     {
-      if (hitVirticle(position.x, size) == 1)
+      if (hitVirticle(saverPosition.x, size) == 1)
         {
           speed.x = speed.x * -1;
         }
-      else if (hitHorizontal(position.y, size) == 1)
+      else if (hitHorizontal(saverPosition.y, size) == 1)
         {
           speed.y = speed.y * -1;
         }
 
-      position.x += speed.x;
-      position.y += speed.y;
+      saverPosition.x += speed.x;
+      saverPosition.y += speed.y;
 
 
       BeginDrawing();
 
       ClearBackground(RAYWHITE);
 
-      DrawRectangle(position.x, position.y, size, size, BLACK);
-      DrawRectangle(position.x + boarderSize, position.y + boarderSize, size - boarderSize * 2, size - boarderSize * 2, RAYWHITE);
+      DrawRectangle(saverPosition.x, saverPosition.y, size, size, BLACK);
+      DrawRectangle(saverPosition.x + boarderSize, saverPosition.y + boarderSize, size - boarderSize * 2, size - boarderSize * 2, RAYWHITE);
 
-      DrawText(text, position.x + size / 2 - textLength / 2, position.y + size / 2 - 10, 20, BLACK);
+      DrawText(saverText, saverPosition.x + size / 2 - textLength / 2, saverPosition.y + size / 2 - 10, 20, BLACK);
 
 
       EndDrawing();

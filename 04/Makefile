@@ -5,4 +5,4 @@ CFLAGS = -g -Wall
 LIBRARIES = `pkg-config --libs --cflags raylib`
 
 program:
-	$(CC) $(CFLAGS) pong.c $(LIBRARIES)
+	$(CC) $(CFLAGS) slide-puzzle.c $(LIBRARIES)

@@ -45,7 +45,7 @@ Lets write the simplest raylib program we can in C. We can write
 ```c
 #include "raylib.h"
 
-int main(void)
+int main()
 {
   InitWindow(800, 450, "My first Raylib program");
   SetTargetFPS(60);
@@ -105,7 +105,7 @@ to make it use your raylib code.
 - what is `#include "raylib.h"` actually doing?
 
 ```c
-int main(void)
+int main()
 ```
 
 This is how you define a function that your program will call when it
@@ -118,8 +118,6 @@ dive into some of the details more if you are curious.
 - What is an `int`?
 - Why return an `int`?
 - Why call it `main`?
-- what is `void`?
-- Why does main take `void`?
 
 ```c
 InitWindow(800, 450, "My first Raylib program");
